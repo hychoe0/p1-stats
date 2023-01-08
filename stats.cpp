@@ -15,17 +15,25 @@ vector<pair<double, int> > summarize(vector<double> v) {
 
 
 int count(vector<double> v) {
-  assert(false);
+  return v.size();
 }
 
 
 double sum(vector<double> v) {
-  assert(false);
+  double sum = 0;
+  for (size_t i = 0; i < v.size(); ++i) {
+    sum += v[i];
+  }
+  return sum;
 }
 
 
 double mean(vector<double> v) {
-  assert(false);
+  double sum = 0;
+  for (size_t i = 0; i < v.size(); ++i) {
+    sum += v[i];
+  }
+  return sum / v.size();
 }
 
 

@@ -23,11 +23,13 @@
 using namespace std;
 
 void test_sum_small_data_set();
+void test_mean_small_data_set();
 
 // Add prototypes for you test functions here.
 
 int main() {
   test_sum_small_data_set();
+  test_mean_small_data_set();
   // Call your test functions here
 
   return 0;
@@ -37,11 +39,24 @@ void test_sum_small_data_set() {
   cout << "test_sum_small_data_set" << endl;
 
   vector<double> data;
-  data.push_back(1);
+  data.push_back(1.5);
   data.push_back(2);
   data.push_back(3);
 
-  assert(sum(data) == 6);
+  assert(sum(data) == 6.5);
+
+  cout << "PASS!" << endl;
+}
+
+void test_mean_small_data_set() {
+  cout << "test_mean_small_data_set" << endl;
+
+  vector<double> data;
+  data.push_back(2);
+  data.push_back(4);
+  data.push_back(8);
+
+  assert(mean(data) == 14.0/3.0);
 
   cout << "PASS!" << endl;
 }
