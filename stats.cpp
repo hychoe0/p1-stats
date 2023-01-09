@@ -52,7 +52,8 @@ double median(vector<double> v) {
 
 
 double mode(vector<double> v) {
-  // boolean variable repeat will make sure if there's repeat or not
+
+  // boolean variable repeat will make sure if there's a repeat or not
   bool repeat = false;
   vector<pair<double, int> > count;
 
@@ -67,11 +68,14 @@ double mode(vector<double> v) {
           frequency++;
         }
       }
-      if (frequency > 0) {
+
+      // if repeat is true, then set values in the vector 'count'
+      if (repeat == true) {
       count.push_back(make_pair(v[i], frequency));
       }
     }
 
+  // find the largest value of frequency in the vector 'count'
   if (repeat == true) {
     double modeValue = count[0].first;
     int modeFrequency = count[0].second;
@@ -84,6 +88,8 @@ double mode(vector<double> v) {
     }
     return modeValue;
   }
+
+  // if repeat is false, then return the first(smallest) value
   return v[0];
 }
 
