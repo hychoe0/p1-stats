@@ -86,9 +86,7 @@ double mode(vector<double> v) {
     return modeValue; 
   }
   return v[0];
-
 }
-
 
 double min(vector<double> v) {
   assert(false);
