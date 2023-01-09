@@ -24,12 +24,14 @@ using namespace std;
 
 void test_sum_small_data_set();
 void test_mean_small_data_set();
+void test_median_small_data_set();
 
 // Add prototypes for you test functions here.
 
 int main() {
   test_sum_small_data_set();
   test_mean_small_data_set();
+  test_median_small_data_set();
   // Call your test functions here
 
   return 0;
@@ -58,6 +60,18 @@ void test_mean_small_data_set() {
 
   assert(mean(data) == 14.0/3.0);
 
+  cout << "PASS!" << endl;
+}
+
+void test_median_small_data_set() {
+  cout << "test_median_small_data_set" << endl;
+
+  vector<double> data;
+  data.push_back(2);
+  data.push_back(4);
+  data.push_back(8);
+
+  assert(median(data) == 4);
   cout << "PASS!" << endl;
 }
 

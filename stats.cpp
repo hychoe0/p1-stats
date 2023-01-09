@@ -1,6 +1,7 @@
 // stats.cpp
 // Project UID 5366c7e2b77742d5b2142097e51561a5
 #include "stats.h"
+#include "p1_library.h"
 #include <cassert>
 #include <vector>
 #include <cmath>
@@ -38,7 +39,12 @@ double mean(vector<double> v) {
 
 
 double median(vector<double> v) {
-  assert(false);
+ sort(v);
+
+  if (v.size() % 2 == 0) {
+    return ((v[v.size() / 2] + v[(v.size() / 2) - 1]) / 2);
+  }
+  return v[v.size() / 2];
 }
 
 
