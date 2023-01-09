@@ -39,17 +39,54 @@ double mean(vector<double> v) {
 
 
 double median(vector<double> v) {
+ // sort vector v from smallest to greatest
  sort(v);
 
+// if the size is even
   if (v.size() % 2 == 0) {
     return ((v[v.size() / 2] + v[(v.size() / 2) - 1]) / 2);
   }
+  // if the size is odd
   return v[v.size() / 2];
 }
 
 
 double mode(vector<double> v) {
-  assert(false);
+  // boolean variable repeat will make sure if there's repeat or not
+  bool repeat = false;
+  vector<pair<double, int> > count;
+
+ // sort vector v from smallest to greatest
+  sort(v);
+
+  for (size_t i = 0; i < v.size(); i++) {
+    int frequency = 0;
+      for (size_t j = i + 1; j < v.size(); j++) {
+        if (v[i] == v[j]) {
+          repeat = true;
+          frequency++;
+        }
+      }
+      if (frequency > 0) {
+      count.push_back(make_pair(v[i], frequency));
+      }
+    }
+
+  double modeValue = count[0].first;
+  int modeFrequency = count[0].second;
+
+  for (int x = 1; x < count.size(); x++) {
+    if (modeFrequency < count[x].second) {
+      modeFrequency = count[x].second;
+      modeValue = count[x].first;
+    }
+  }
+
+  if (repeat == true) {
+    return modeValue; 
+  }
+  return v[0];
+
 }
 
 
