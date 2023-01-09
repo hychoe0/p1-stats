@@ -72,24 +72,23 @@ double mode(vector<double> v) {
       }
     }
 
-  double modeValue = count[0].first;
-  int modeFrequency = count[0].second;
-
-  for (int x = 1; x < count.size(); x++) {
-    if (modeFrequency < count[x].second) {
-      modeFrequency = count[x].second;
-      modeValue = count[x].first;
-    }
-  }
-
   if (repeat == true) {
-    return modeValue; 
+    double modeValue = count[0].first;
+    int modeFrequency = count[0].second;
+
+    for (int x = 1; x < count.size(); x++) {
+      if (modeFrequency < count[x].second) {
+        modeFrequency = count[x].second;
+        modeValue = count[x].first;
+      }
+    }
+    return modeValue;
   }
   return v[0];
 }
 
 double min(vector<double> v) {
-  assert(false);
+  return v[0];
 }
 
 
