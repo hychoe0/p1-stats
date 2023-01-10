@@ -94,17 +94,35 @@ double mode(vector<double> v) {
 }
 
 double min(vector<double> v) {
+  
+  // sort the data and return the first value
+  sort(v);
+
   return v[0];
 }
 
 
 double max(vector<double> v) {
-  assert(false);
+
+  // sort the data and return the last value
+  sort(v);
+
+  return v[v.size() - 1];
 }
 
 
 double stdev(vector<double> v) {
-  assert(false);
+  
+  // Expected value is a mean value of the data
+  double expectedVal = mean(v);
+
+  // Deviations are (each value in data - expected)
+  double dev[v.size()];
+
+  // stdev = sqrt(((actual - expected)^2) / sample size)
+  for (size_t i = 0; i < v.size(); i++) {
+    dev[i] = v[i] - expectedVal;
+  }
 }
 
 

@@ -27,8 +27,8 @@ void test_mean_small_data_set();
 void test_median_small_data_set();
 void test_mode_small_data_set();
 void test_min_small_data_set();
+void test_max_small_data_set();
 
-// Add prototypes for you test functions here.
 
 int main() {
   test_sum_small_data_set();
@@ -36,7 +36,7 @@ int main() {
   test_median_small_data_set();
   test_mode_small_data_set();
   test_min_small_data_set();
-  // Call your test functions here
+  test_max_small_data_set();
 
   return 0;
 }
@@ -105,6 +105,23 @@ void test_min_small_data_set() {
 
   assert(min(data) == 1);
   cout << "PASS!" << endl;
+
+  vector<double> data2 = {5, 6, 2, 3, 3, 2, 1};
+
+  assert(min(data2) == 1);
+  cout << "PASS!" << endl;
 }
 
-// Add the test function implementations here.
+void test_max_small_data_set() {
+  cout << "test_max_small_data_set" << endl;
+
+  vector<double> data = {1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4};
+
+  assert(max(data) == 4);
+  cout << "PASS!" << endl;
+
+  vector<double> data2 = {5, 6, 2, 3, 3, 2, 1};
+
+  assert(max(data2) == 6);
+  cout << "PASS!" << endl;
+}
