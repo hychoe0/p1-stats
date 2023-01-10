@@ -131,10 +131,8 @@ void test_max_small_data_set() {
 void test_stdev_small_data_set() {
   cout << "test_stdev_small_data_set" << endl;
 
-  vector<double> data = {1, 2, 3, 4, 5};
+  vector<double> data = {6, 7, 8, 9, 10};
 
-
-  cout << stdev(data) << endl;
-  // assert(stdev(data) == sqrt(2.5));
-  // cout << "PASS!" << endl;
+  assert(stdev(data) == sqrt(2.5));
+  cout << "PASS!" << endl;
 }

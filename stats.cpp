@@ -113,8 +113,6 @@ double max(vector<double> v) {
 
 double stdev(vector<double> v) {
   
-  int sampleSize = v.size();
-
   // Expected value is a mean value of the data
   double expectedVal = mean(v);
 
@@ -123,13 +121,13 @@ double stdev(vector<double> v) {
 
   // stdev = sqrt(((actual - expected)^2) / sample size)
   for (size_t i = 0; i < v.size(); i++) {
-    dev.push_back(v[i] - expectedVal);
+    dev.push_back(pow((v[i] - expectedVal),2));
   }
 
   // sum of deviations
   double devTotal = sum(dev);
 
-  double stdev = sqrt(devTotal / sampleSize);
+  double stdev = sqrt(devTotal / (v.size() - 1));
 
   return stdev;
 }
