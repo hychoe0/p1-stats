@@ -28,6 +28,7 @@ void test_median_small_data_set();
 void test_mode_small_data_set();
 void test_min_small_data_set();
 void test_max_small_data_set();
+void test_stdev_small_data_set();
 
 
 int main() {
@@ -37,6 +38,7 @@ int main() {
   test_mode_small_data_set();
   test_min_small_data_set();
   test_max_small_data_set();
+  test_stdev_small_data_set();
 
   return 0;
 }
@@ -124,4 +126,15 @@ void test_max_small_data_set() {
 
   assert(max(data2) == 6);
   cout << "PASS!" << endl;
+}
+
+void test_stdev_small_data_set() {
+  cout << "test_stdev_small_data_set" << endl;
+
+  vector<double> data = {1, 2, 3, 4, 5};
+
+
+  cout << stdev(data) << endl;
+  // assert(stdev(data) == sqrt(2.5));
+  // cout << "PASS!" << endl;
 }
