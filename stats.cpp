@@ -71,7 +71,7 @@ double mode(vector<double> v) {
 
       // if repeat is true, then set values in the vector 'count'
       if (repeat == true) {
-      count.push_back(make_pair(v[i], frequency));
+      count.push_back({v[i], frequency});
       }
     }
 
