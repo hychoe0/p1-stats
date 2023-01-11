@@ -134,5 +134,25 @@ double stdev(vector<double> v) {
 
 
 double percentile(vector<double> v, double p) {
-  assert(false);
+  // sort the data in vector
+  sort(v);
+
+  // n = (P/100)(N - 1) + 1
+  // P/100 is already p
+  double ordinalRank = p * (v.size() - 1) + 1;
+
+  // n = k + d
+  // k represents intPart and d represents fractPart
+  double intPart = 0;
+  double fractPart = modf(ordinalRank, &intPart);
+
+  // initializing percentile
+  double percentile = 0;
+
+  // equation to get percentile
+  // k == intPart - 1 since the index starts from 0, not 1
+  percentile = v[intPart - 1] + fractPart * (v[intPart] - v[intPart - 1]);
+
+  return percentile;
+
 }

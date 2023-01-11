@@ -29,6 +29,7 @@ void test_mode_small_data_set();
 void test_min_small_data_set();
 void test_max_small_data_set();
 void test_stdev_small_data_set();
+void test_percentile_small_data_set();
 
 
 int main() {
@@ -39,6 +40,7 @@ int main() {
   test_min_small_data_set();
   test_max_small_data_set();
   test_stdev_small_data_set();
+  test_percentile_small_data_set();
 
   return 0;
 }
@@ -135,4 +137,44 @@ void test_stdev_small_data_set() {
 
   assert(stdev(data) == sqrt(2.5));
   cout << "PASS!" << endl;
+}
+
+void test_percentile_small_data_set() {
+  cout << "test_percentile_small_data_set" << endl;
+
+  vector<double> data = {15, 20, 35, 40, 50};
+  // 40th percentile
+  double p1 = 0.4;
+
+  assert(percentile(data, p1) == 29);
+  cout << "PASS!" << endl;
+
+  vector<double> data2 = {6, 7, 8, 9, 10};
+  // 0th percentile
+  double p2_1 = 0;
+  // 0th percentile
+  double p2_2 = 0.25;
+  // 0th percentile
+  double p2_3 = 0.5;
+  // 0th percentile
+  double p2_4 = 0.75;
+  // 0th percentile
+  double p2_5 = 1;
+
+  assert(percentile(data2, p2_1) == 6);
+  assert(percentile(data2, p2_2) == 7);
+  assert(percentile(data2, p2_3) == 8);
+  assert(percentile(data2, p2_4) == 9);
+  assert(percentile(data2, p2_5) == 10);
+  cout << "PASS!" << endl;
+
+  vector<double> data3 = {1, 4, 5, 7, 9, 10, 30, 300, 600};
+  double p3 = 0;
+  int percentileVal = 0;
+
+  for (size_t i = 0; i < 21; i++) {
+    cout << percentileVal << "th percentile : " << percentile(data3, p3) << endl;
+    p3 += 0.05;
+    percentileVal += 5;
+  }
 }
