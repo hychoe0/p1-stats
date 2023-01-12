@@ -6,12 +6,28 @@
 #include <vector>
 #include <cmath>
 
-
 using namespace std;
 
 
 vector<pair<double, int> > summarize(vector<double> v) {
-  assert(false);
+  sort(v);
+  int usedNum = 0;
+
+  vector<pair<double, int> > count;
+
+  for (size_t i = 0 ; i < v.size(); i++) {
+    int frequency = 1;
+      for (size_t j = i + 1; j < v.size(); j++) {
+        if (v[i] == v[j]) {
+          frequency++;
+          usedNum = v[i];
+        }
+      }
+      if (usedNum != v[i]) {
+        count.push_back({v[i], frequency});
+      }
+  }
+  return count;
 }
 
 

@@ -30,6 +30,7 @@ void test_min_small_data_set();
 void test_max_small_data_set();
 void test_stdev_small_data_set();
 void test_percentile_small_data_set();
+void test_summarize_small_data_set();
 
 
 int main() {
@@ -41,6 +42,7 @@ int main() {
   test_max_small_data_set();
   test_stdev_small_data_set();
   test_percentile_small_data_set();
+  test_summarize_small_data_set();
 
   return 0;
 }
@@ -172,9 +174,22 @@ void test_percentile_small_data_set() {
   double p3 = 0;
   int percentileVal = 0;
 
+  // generated 0 - 100th percentile with every 5th percentile
   for (size_t i = 0; i < 21; i++) {
     cout << percentileVal << "th percentile : " << percentile(data3, p3) << endl;
     p3 += 0.05;
     percentileVal += 5;
+  }
+}
+
+void test_summarize_small_data_set() {
+  cout << "test_summarize_small_data_set" << endl;
+
+  vector<double> data = {3, 3, 7, 8, 9, 10};
+  
+  vector<pair<double, int> > result = summarize(data);
+
+  for (size_t i = 0; i < data.size(); i++) {
+    cout << "{" << result[i].first << ", " << result[i].second << "}" << endl;
   }
 }
