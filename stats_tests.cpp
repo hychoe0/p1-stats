@@ -102,6 +102,11 @@ void test_mode_small_data_set() {
 
   assert(mode(data3) == 1);
   cout << "PASS!" << endl;
+
+  vector<double> data4 = {-1, -2, -3, -3, -5, -1, -1, -1, -3, -4};
+
+  assert(mode(data4) == -1);
+  cout << "PASS!" << endl;
 }
 
 void test_min_small_data_set() {

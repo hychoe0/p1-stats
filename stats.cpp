@@ -11,23 +11,31 @@ using namespace std;
 
 vector<pair<double, int> > summarize(vector<double> v) {
   sort(v);
-  int usedNum = 0;
 
-  vector<pair<double, int> > count;
+  // pitfall: if the data starts with 0
+ 
+
+  vector<pair<double, int> > value;
 
   for (size_t i = 0 ; i < v.size(); i++) {
-    int frequency = 1;
-      for (size_t j = i + 1; j < v.size(); j++) {
+    int frequency = 0;
+    bool twoOrMore = false;
+      for (size_t j = i; j < v.size(); j++) {
         if (v[i] == v[j]) {
           frequency++;
-          usedNum = v[i];
         }
       }
-      if (usedNum != v[i]) {
-        count.push_back({v[i], frequency});
+      if (frequency > 1) {
+        twoOrMore = true;
       }
+
+      // push_back the data once for a single value
+      if (twoOrMore == false) {
+        value.push_back({v[i], frequency});
+      }
+      
   }
-  return count;
+  return value;
 }
 
 
