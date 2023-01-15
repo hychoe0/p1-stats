@@ -12,31 +12,26 @@ using namespace std;
 vector<pair<double, int> > summarize(vector<double> v) {
   sort(v);
 
-  // pitfall: if the data starts with 0
- 
-
   vector<pair<double, int> > value;
+  double repeatedNum;
 
   for (size_t i = 0 ; i < v.size(); i++) {
-    int frequency = 0;
-    bool twoOrMore = false;
-      for (size_t j = i; j < v.size(); j++) {
-        if (v[i] == v[j]) {
-          frequency++;
-        }
+    int frequency = 1;
+    for (size_t j = i; j < v.size() - 1; j++) {
+      if (v[i] == v[j + 1]) {
+       frequency++;
       }
-      if (frequency > 1) {
-        twoOrMore = true;
-      }
-
-      // push_back the data once for a single value
-      if (twoOrMore == false) {
-        value.push_back({v[i], frequency});
-      }
-      
-  }
+    }
+    if (repeatedNum != v[i]) {
+      value.push_back({v[i], frequency});
+      repeatedNum = v[i];
+    }
+  } 
   return value;
 }
+  
+  
+
 
 
 int count(vector<double> v) {

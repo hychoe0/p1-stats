@@ -190,7 +190,7 @@ void test_percentile_small_data_set() {
 void test_summarize_small_data_set() {
   cout << "test_summarize_small_data_set" << endl;
 
-  vector<double> data = {3, 3, 7, 8, 9, 10};
+  vector<double> data = {2, 3, 3, 3, 7, 8, 9, 10};
   
   vector<pair<double, int> > result = summarize(data);
 
