@@ -15,25 +15,21 @@ vector<pair<double, int> > summarize(vector<double> v) {
   vector<pair<double, int> > value;
   double repeatedNum;
 
-  if (v.size() > 1) {
-    for (size_t i = 0 ; i < v.size(); i++) {
-      int frequency = 1;
-      for (size_t j = i; j < v.size() - 1; j++) {
-        if (v[i] == v[j + 1]) {
-        frequency++;
-        }
-      }
-      if (repeatedNum != v[i]) {
-        value.push_back({v[i], frequency});
-        repeatedNum = v[i];
+  for (size_t i = 0 ; i < v.size(); i++) {
+    int frequency = 0;
+    for (size_t j = i; j < v.size(); j++) {
+      if (v.at(i) == v.at(j)) {
+      frequency++;
       }
     }
+    if (repeatedNum != v[i]) {
+      value.push_back({v[i], frequency});
+      repeatedNum = v[i];
+    }
   }
-  else if (v.size() == 1) {
-    value.push_back({v[0], 1});
-  } 
   return value;
 }
+
 
 int count(vector<double> v) {
   return v.size();
@@ -83,7 +79,7 @@ double mode(vector<double> v) {
   for (size_t i = 0; i < v.size(); i++) {
     int frequency = 0;
       for (size_t j = i + 1; j < v.size(); j++) {
-        if (v[i] == v[j]) {
+        if (v.at(i) == v.at(j)) {
           repeat = true;
           frequency++;
         }
@@ -91,7 +87,7 @@ double mode(vector<double> v) {
 
       // if repeat is true, then set values in the vector 'count'
       if (repeat == true) {
-      count.push_back({v[i], frequency});
+      count.push_back({v.at(i), frequency});
       }
     }
 
