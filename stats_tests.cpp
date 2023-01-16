@@ -31,6 +31,7 @@ void test_max_small_data_set();
 void test_stdev_small_data_set();
 void test_percentile_small_data_set();
 void test_summarize_small_data_set();
+void test_comprehensive();
 
 
 int main() {
@@ -43,6 +44,7 @@ int main() {
   test_stdev_small_data_set();
   test_percentile_small_data_set();
   test_summarize_small_data_set();
+  test_comprehensive();
 
   return 0;
 }
@@ -190,11 +192,39 @@ void test_percentile_small_data_set() {
 void test_summarize_small_data_set() {
   cout << "test_summarize_small_data_set" << endl;
 
-  vector<double> data = {2, 3, 3, 3, 7, 8, 9, 10};
+  vector<double> data = {4, 5, 5, 5, 6, 7};
   
   vector<pair<double, int> > result = summarize(data);
 
   for (size_t i = 0; i < data.size(); i++) {
-    cout << "{" << result[i].first << ", " << result[i].second << "}" << endl;
+    if (result[i].second > 0) {
+      cout << "{" << result[i].first << ", " << result[i].second << "}" << endl;
+    }
   }
+}
+
+void test_comprehensive() {
+  cout << "test_comprehensive" << endl;
+  vector<double> data = {0, 0, 5, 5, 6, 2};
+
+  vector<pair<double, int> > summary = summarize(data);
+
+  for (int i = 0; i < data.size(); i++) {
+    if (summary[i].second > 0) {
+      cout << summary[i].first << ": " << summary[i].second << endl;
+    }
+  }
+  cout << endl;
+
+  cout << "count" << count(data) << endl;
+  cout << "sum" << sum(data) << endl;
+  cout << "mean" << mean(data) << endl;
+  cout << "median" << median(data) << endl;
+  cout << "mode" << mode(data) << endl;
+  cout << "min" << min(data) << endl;
+  cout << "max" << max(data) << endl;
+  cout << "stdev" << stdev(data) << endl;
+  cout << "percentile" << percentile(data, 0.5) << endl;
+
+  
 }

@@ -37,10 +37,42 @@ int main() {
   double percentile_75_data = percentile(data, 0.75);
   double percentile_100_data = percentile(data, 1.0);
 
-  
+  // Summary
   for (size_t i = 0; i < summary.size(); i++) {
-    cout << summary[i].first << ": " << summary[i].second << endl;
+    if (summary[i].second > 0) {
+      cout << summary[i].first << ": " << summary[i].second << endl;
+    }
   }
+  cout << endl;
 
-  
+  // Count
+  cout << "count = " << count_data << endl;
+
+  // Sum
+  cout << "sum = " << sum_data << endl;
+
+  // Mean
+  cout << "mean = " << mean_data << endl;
+
+  // Standard Deviation
+  cout << "stdev = " << stdev_data << endl;
+
+  // Median
+  cout << "median = " << median_data << endl;
+
+  // Mode
+  cout << "mode = " << mode_data << endl;
+
+  // Minimum
+  cout << "min = " << min_data << endl;
+
+  // Maximum
+  cout << "max = " << max_data << endl;
+
+  // Percentile
+  cout << "  0th percentile = " << percentile_0_data << endl;
+  cout << " 25th percentile = " << percentile_25_data << endl;
+  cout << " 50th percentile = " << percentile_50_data << endl;
+  cout << " 75th percentile = " << percentile_75_data << endl;
+  cout << "100th percentile = " << percentile_100_data << endl;
 }

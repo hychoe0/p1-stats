@@ -15,24 +15,25 @@ vector<pair<double, int> > summarize(vector<double> v) {
   vector<pair<double, int> > value;
   double repeatedNum;
 
-  for (size_t i = 0 ; i < v.size(); i++) {
-    int frequency = 1;
-    for (size_t j = i; j < v.size() - 1; j++) {
-      if (v[i] == v[j + 1]) {
-       frequency++;
+  if (v.size() > 1) {
+    for (size_t i = 0 ; i < v.size(); i++) {
+      int frequency = 1;
+      for (size_t j = i; j < v.size() - 1; j++) {
+        if (v[i] == v[j + 1]) {
+        frequency++;
+        }
+      }
+      if (repeatedNum != v[i]) {
+        value.push_back({v[i], frequency});
+        repeatedNum = v[i];
       }
     }
-    if (repeatedNum != v[i]) {
-      value.push_back({v[i], frequency});
-      repeatedNum = v[i];
-    }
+  }
+  else if (v.size() == 1) {
+    value.push_back({v[0], 1});
   } 
   return value;
 }
-  
-  
-
-
 
 int count(vector<double> v) {
   return v.size();
