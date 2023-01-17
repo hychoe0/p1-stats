@@ -167,9 +167,13 @@ double percentile(vector<double> v, double p) {
 
   // equation to get percentile
   // k == intPart - 1 since the index starts from 0, not 1
+  // if p == 1.0 the index of the vector goes 'out-of-bound'
+  // since the intpart goes over the v.size()
+  
   if (p == 1.0) {
     percentile = v[intPart - 1];
   }
+
   else {
     percentile = v[intPart - 1] + fractPart * (v[intPart] - v[intPart - 1]);
   }

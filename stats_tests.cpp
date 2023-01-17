@@ -90,25 +90,37 @@ void test_median_small_data_set() {
 void test_mode_small_data_set() {
   cout << "test_mode_small_data_set" << endl;
 
+  // Testing public_test
   vector<double> data = {6, 7, 8, 9, 10};
 
   assert(mode(data) == 6);
   cout << "PASS!" << endl;
-
-  vector<double> data2 = {1.5, 1.5, 1.5, 2, 2, 2, 3, 3, 3, 4, 4, 4};
+  
+  // Testing <double> numbers
+  vector<double> data2 = {1.5, 1.5, 1.5, 1.6, 1.56, 1.56, 0.7, 3, 3, 4, 1.4, 4};
 
   assert(mode(data2) == 1.5);
   cout << "PASS!" << endl;
 
+  // Testing non-repeating numbers
   vector<double> data3 = {1, 2, 3};
 
   assert(mode(data3) == 1);
   cout << "PASS!" << endl;
 
+  // Testing negative numbers
   vector<double> data4 = {-1, -2, -3, -3, -5, -1, -1, -1, -3, -4};
 
   assert(mode(data4) == -1);
   cout << "PASS!" << endl;
+
+  // Testing 0s
+  vector<double> data5 = {5, -1, -4, 0, 2, -3, 0, 2};
+
+  assert(mode(data5) == 0);
+  cout << "PASS!" << endl;
+
+  
 }
 
 void test_min_small_data_set() {
@@ -199,7 +211,7 @@ void test_percentile_small_data_set() {
 void test_summarize_small_data_set() {
   cout << "test_summarize_small_data_set" << endl;
 
-  vector<double> data = {1, 3, 3, 3, 3};
+  vector<double> data = {-1, -3, 3, 3, 3};
   
   vector<pair<double, int> > result = summarize(data);
 
