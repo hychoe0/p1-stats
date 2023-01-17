@@ -21,6 +21,7 @@ int main() {
   vector<double> data = extract_column(fileName, columnName);
 
   // Statistics Output
+  
   // Summary
   vector<pair<double, int> > summary = summarize(data);
 
@@ -28,16 +29,6 @@ int main() {
     cout << summary[i].first << ": " << summary[i].second << endl;
   }
   cout << endl;
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
   // Count
   int count_data = count(data);
@@ -77,7 +68,7 @@ int main() {
   double percentile_50_data = percentile(data, 0.50);
   double percentile_75_data = percentile(data, 0.75);
   double percentile_100_data = percentile(data, 1.0);
-  
+
   cout << "  0th percentile = " << percentile_0_data << endl;
   cout << " 25th percentile = " << percentile_25_data << endl;
   cout << " 50th percentile = " << percentile_50_data << endl;

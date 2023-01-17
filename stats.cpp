@@ -167,8 +167,13 @@ double percentile(vector<double> v, double p) {
 
   // equation to get percentile
   // k == intPart - 1 since the index starts from 0, not 1
-  percentile = v[intPart - 1] + fractPart * (v[intPart] - v[intPart - 1]);
-
+  if (p == 1.0) {
+    percentile = v[intPart - 1];
+  }
+  else {
+    percentile = v[intPart - 1] + fractPart * (v[intPart] - v[intPart - 1]);
+  }
+  
   return percentile;
 
 }

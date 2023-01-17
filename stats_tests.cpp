@@ -35,16 +35,16 @@ void test_comprehensive();
 
 
 int main() {
-  // test_sum_small_data_set();
-  // test_mean_small_data_set();
-  // test_median_small_data_set();
+  test_sum_small_data_set();
+  test_mean_small_data_set();
+  test_median_small_data_set();
   test_mode_small_data_set();
-  // test_min_small_data_set();
-  // test_max_small_data_set();
-  // test_stdev_small_data_set();
-  // test_percentile_small_data_set();
-  // test_summarize_small_data_set();
-  // test_comprehensive();
+  test_min_small_data_set();
+  test_max_small_data_set();
+  test_stdev_small_data_set();
+  test_percentile_small_data_set();
+  test_summarize_small_data_set();
+  test_comprehensive();
 
   return 0;
 }
@@ -187,6 +187,13 @@ void test_percentile_small_data_set() {
     p3 += 0.05;
     percentileVal += 5;
   }
+
+  vector<double> test = {6, 7, 8, 9, 10};
+  // 100th percentile
+  double p_test = 0.99;
+
+  assert(percentile(test, p_test) == 9.96);
+  cout << "PASS!" << endl;
 }
 
 void test_summarize_small_data_set() {
